@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mentalfestas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="staticBg">   
+    <div class="hero">
+        
+        <h1 class="powerTxt" id = "pwr">Click to power on</h1>
+        <img src="images/logo.png" class="logo" onclick ="toggleLogo()" id ="btn">
+
+        <video autoplay muted loop playsinline class="livebackground" id="bg">
+        <source src="images/movingbg.mp4" type="video/mp4">
+        </video>
+        
+        <div class="wrapper">
+            <h2>@mentalfestas</h2>
+            <p>CS student at KTU /<br>Multimedia Technology course </p>
+
+            
+        </div>
+        <div class="wrapperleft">
+            <h2>Projects</h2>
+            <p>No current projects.</p>
+        </div>
+        <div class="wrapperright">
+            <h2>Repositories</h2>
+            <a href = "https://github.com/mentalfestas?tab=repositories">GitHub</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    var btn = document.getElementById("btn");
+    var txt = document.getElementById("pwr");
+    var wrap = document.querySelector('.wrapper');
+    var wrapleft = document.querySelector('.wrapperleft');
+    var wrapright = document.querySelector('.wrapperright');
+    var video = document.getElementById("bg");
+
+
+    function toggleLogo()
+    {
+        if(btn.classList.contains("active"))
+        {
+            btn.classList.remove("active");
+            wrapleft.classList.toggle("wrapperLeftReverse");
+            wrapright.classList.toggle("wrapperRightReverse");
+            wrap.classList.toggle("wrapperDown");
+            setTimeout(function(){video.classList.remove("appear");},500);
+            btn.classList.toggle("deactive");
+            wrap.classList.remove("wrapperUp");
+            setTimeout(function(){txt.classList.toggle("appear");},900);
+            
+            
+
+        }else
+        {
+            btn.classList.toggle("active");
+            txt.classList.toggle("disappear");
+            if(btn.classList.contains("active"))
+            {
+                setTimeout(function(){wrap.classList.toggle("wrapperUp");},450);
+                setTimeout(function(){wrapleft.classList.toggle("wrapperLeft");
+                                      wrapright.classList.toggle("wrapperRight");},450)
+                setTimeout(function(){video.classList.toggle("appear");},800);
+                
+            }  
+            
+            
+        }
+        
+        
+
+    }
+
+</script>
+
+</body>
+</html>
